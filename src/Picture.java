@@ -325,7 +325,23 @@ public class Picture extends SimplePicture {
 			}
 		}
 	}
-
+	public void edgeDetectionVert(int edgeDist) {
+		Pixel top = null;
+		Pixel bottom = null;
+		Pixel[][] pixels = this.getPixels2D();
+		Color bottomcolor = null;
+		for (int row = 0; row < pixels.length-1; row++) {
+			for (int col = 0; col < pixels[0].length; col++) {
+				top = pixels[row][col];
+				bottom = pixels[row+1][col];
+				bottomcolor = bottom.getColor();
+				if (top.colorDistance(bottomcolor) > edgeDist)
+					top.setColor(Color.BLACK);
+				else
+					top.setColor(Color.WHITE);
+			}
+		}
+	}
 	/*
 	 * Main method for testing - each class in Java can have a main method
 	 */
