@@ -273,13 +273,13 @@ public class Picture extends SimplePicture {
 			}
 		}
 	}
-	public void copy(Picture fromPic, int startrow, int startcol, int endrow, int endcol) {
+	public void copy(Picture fromPic, int startrow, int startcol, int endrow, int endcol, int copyToRow, int copyToCol) {
 		Pixel fromPixel = null;
 		Pixel toPixel = null;
 		Pixel[][] toPixels = this.getPixels2D();
 		Pixel[][] fromPixels = fromPic.getPixels2D();
-		for (int fromRow = startrow, toRow = endrow; fromRow <= startrow && toRow < toPixels.length; fromRow++, toRow++) {
-			for (int fromCol = startrow, toCol = startcol; fromCol <= startcol && toCol < toPixels[0].length; fromCol++, toCol++) {
+		for (int fromRow = startrow, toRow = copyToRow; fromRow <= endrow && toRow < toPixels.length; fromRow++, toRow++) {
+			for (int fromCol = startrow, toCol = copyToRow; fromCol <= endcol && toCol < toPixels[0].length; fromCol++, toCol++) {
 				fromPixel = fromPixels[fromRow][fromCol];
 				toPixel = toPixels[toRow][toCol];
 				toPixel.setColor(fromPixel.getColor());
