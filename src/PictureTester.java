@@ -54,7 +54,7 @@ public class PictureTester
   public static void testEdgeDetection2()
   {
     Picture swan = new Picture("swan.jpg");
-    swan.edgeDetectionVert(10);
+    swan.edgeDetectionDiag(10);
     swan.explore();
   }
   /** Main method for testing.  Every class can have a main
