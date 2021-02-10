@@ -48,14 +48,23 @@ public class PictureTester
   {
     Picture swan = new Picture("swan.jpg");
     swan.edgeDetection(10);
-    swan.explore();
+    PictureExplorer pExplorer = new PictureExplorer(swan);
+    pExplorer.setTitle("HORIZONTAL (DEFAULT)");
   }
   
   public static void testEdgeDetection2()
   {
     Picture swan = new Picture("swan.jpg");
+    swan.edgeDetectionVert(10);
+    PictureExplorer pExplorer = new PictureExplorer(swan);
+    pExplorer.setTitle("VERT");
+  }
+  public static void testEdgeDetection3() {
+    Picture swan = new Picture("swan.jpg");
     swan.edgeDetectionDiag(10);
-    swan.explore();
+    PictureExplorer pExplorer = new PictureExplorer(swan);
+    pExplorer.setTitle("DIAGONAL"); 
+
   }
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -78,8 +87,12 @@ public class PictureTester
     //testMirrorDiagonal();
     //testCollage();
     //testCopy();
-    // testEdgeDetection();
+    Picture swan = new Picture("swan.jpg");
+    PictureExplorer pExplorer = new PictureExplorer(swan);
+    pExplorer.setTitle("normal");
+    testEdgeDetection();
     testEdgeDetection2();
+    testEdgeDetection3();
     //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
